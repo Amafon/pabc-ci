@@ -1,7 +1,7 @@
 <?=$this->extend('Layouts/default.php')?>
 <?=$this->section('content')?>
     <main class="main">
-      <section class="section-home" id="home">
+      <section class="section-home" id="home"  style='background-image: url("<?php echo base_url('images/img-1.webp'); ?>");'>
         <div class="container">
           <div class="home-text">
             <h1 class="heading-primary">
@@ -18,33 +18,6 @@
           </div>
         </div>
       </section>
-      <div class="section-intro">
-        <div class="container">
-          <div class="container-intro">
-            <div class="intro-img">
-              <img src="<?php echo base_url('images/img-pr.jpg'); ?>" alt="Image of the President">
-            </div>
-            <div class="intro-text">
-              <h2>Inauguration du Pont de Cocody</h2>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                In, vel modi rem magnam dicta libero nemo minus nisi cupiditate alias, veniam est illum odio ut.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat blanditiis, expedita eius veniam accusantium, 
-                quasi consectetur maiores optio ab nisi magnam! Mollitia est perspiciatis accusamus, ipsa quo sequi dicta harum!
-              </p>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                In, vel modi rem magnam dicta libero nemo minus nisi cupiditate alias, veniam est illum odio ut.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat blanditiis, expedita eius veniam accusantium, 
-                quasi consectetur maiores optio ab nisi magnam! Mollitia est perspiciatis accusamus, ipsa quo sequi dicta harum!
-              </p>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                In, vel modi rem magnam dicta libero nemo minus nisi cupiditate alias, veniam est illum odio ut.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat blanditiis, expedita eius veniam accusantium, 
-                quasi consectetur maiores optio ab nisi magnam! Mollitia est perspiciatis accusamus, ipsa quo sequi dicta harum!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
       <section class="section-features" id="features">
         <div class="container">
           <div class="features-grid">
@@ -87,10 +60,34 @@
           </div>
         </div>
       </section>
+        <div class="section-intro">
+          <div class="container">
+            <div class="container-intro">
+              <div class="intro-img">
+                <div class="img-pr" style='heigt: 100%; background-image: url("<?php echo base_url('images/img-pr.jpg'); ?>"); padding: 2rem;'>
+                </div>
+              </div>
+              <div class="intro-text">
+                <h2>Mot du Président de la République</h2>
+                <p>...</p>
+                <p>Chers frères, chères soeurs,</p>
+                <p>...</p>
+                <p>L’évènement qui nous réunit aujourd’hui est exceptionnel ! En effet, il s’agit de l’inauguration d’une oeuvre architecturale d’une rare beauté, qui donnera encore plus d’éclat à notre capitale économique et contribuera, ainsi, à son rayonnement.
+                  </p>
+                  <p>Cet ouvrage, qui constitue un atout touristique de premier ordre pour notre pays, est le fruit de la collaboration entre des hommes de grands talents et des structures aux compétences complémentaires que sont l'architecte Pierre FAKHOURY, mon jeune frère, à qui je voudrais rendre hommage, qui a conçu ce magnifique pont, l’Entreprise des travaux CRBC, le BNETD, le LBTP et la Cellule de coordination du Projet d’Aménagement de la Baie de Cocody. 
+                  <p>...</p>
+                </p>
+                <p>Je déclare ouvert, « le Pont Alassane Dramane OUATTARA ».</p>
+                <p>Vive la République !</p>
+                <p>Vive la Côte d’Ivoire ! Je vous remercie.</p>
+              </div>
+            </div>
+        </div>
+      </div>
       <section class="section-activities" id="activities">
         <div class="container">
           <div class="activities-grid">
-            <div class="img-container">
+            <div class="img-container" style='background-image: url("<?php echo base_url('images/img-3.jpg'); ?>");'>
               <!-- <img src="images/img-3.jpg" alt="" /> -->
             </div>
             <div class="activities-content">
@@ -129,70 +126,7 @@
           </div>
         </div>
       </section>
-      <section class="section-projects" id="projects">
-        <div class="projects-grid container">
-          <div class="section-header">
-            <h2>Nos projets</h2>
-          </div>
-          <div class="section-body">
-            <div class="img-container">
-              <img src="<?php echo base_url('images/img-4.webp'); ?>" alt="" />
-              <div class="overlay">
-                <div class="text">
-                  <p>BANIBAH - FRANZETTI</p>
-                  <p>Bassin Ecrêteur de Williamsville</p>
-                </div>
-              </div>
-            </div>
-            <div class="img-container">
-              <img src="<?php echo base_url('images/img-5.webp'); ?>" alt="" />
-              <div class="overlay">
-                <div class="text">
-                  <p>SGTM</p>
-                  <p>Aménagement du Carrefour de l'Indenié</p>
-                </div>
-              </div>
-            </div>
-            <div class="img-container">
-              <img src="<?php echo base_url('images/img-6.webp'); ?>" alt="" />
-              <div class="overlay">
-                <div class="text">
-                  <p>SODEFOR - CERCIS</p>
-                  <p>Aménagement de la Coulée Verte du Banco</p>
-                </div>
-              </div>
-            </div>
-            <div class="img-container">
-              <img src="<?php echo base_url('images/img-7.webp'); ?>" alt="" />
-              <div class="overlay">
-                <div class="text">
-                  <p>SGTM</p>
-                  <p>Embouchure du Fleuve Comoé - Grand Bassam</p>
-                </div>
-              </div>
-            </div>
-            <div class="img-container">
-              <img src="<?php echo base_url('images/img-8.webp'); ?>" alt="" />
-              <div class="overlay">
-                <div class="text">
-                  <p>CRBC</p>
-                  <p>Pont Alassane OUATTARA</p>
-                </div>
-              </div>
-            </div>
-            <div class="img-container">
-              <img src="<?php echo base_url('images/img-9.webp'); ?>" alt="" />
-              <div class="overlay">
-                <div class="text">
-                  <p>CRBC</p>
-                  <p>Pont Alassane OUATTARA</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-managers" id="managers">
+            <section class="section-managers" id="managers">
         <div class="container">
           <div class="managers-grid">
             <div class="section-header">
@@ -204,7 +138,7 @@
               <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide slide-1">
-                  <div class="img-container">
+                  <div class="img-container" style='background-image: url("<?php echo base_url('images/img-pm.jpg'); ?>");'>
                     <!-- <img src="images/img-pm.jpg" alt="" /> -->
                   </div>
                   <div class="activities-content">
@@ -277,7 +211,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide slide-2">
-                  <div class="img-container">
+                  <div class="img-container" style='background-image: url("<?php echo base_url('images/img-slider2.png'); ?>");'>
                     <!-- <img src="images/img-slider2.png" alt="" /> -->
                   </div>
                   <div class="activities-content">
@@ -350,7 +284,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide slide-3">
-                  <div class="img-container">
+                  <div class="img-container"  style='background-image: url("<?php echo base_url('images/img-slider3.png'); ?>");'>
                     <!-- <img src="images/img-slider3.png" alt="" /> -->
                   </div>
                   <div class="activities-content">
@@ -419,7 +353,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide slide-4">
-                  <div class="img-container">
+                  <div class="img-container"  style='background-image: url("<?php echo base_url('images/img-slider4.png'); ?>");'>
                     <!-- <img src="images/img-slider4.png" alt="" /> -->
                   </div>
                   <div class="activities-content">
@@ -486,7 +420,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide slide-5">
-                  <div class="img-container">
+                  <div class="img-container"  style='background-image: url("<?php echo base_url('images/img-slider5.png'); ?>");'>
                     <!-- <img src="images/img-slider5.png" alt="" /> -->
                   </div>
                   <div class="activities-content">
@@ -582,6 +516,69 @@
           </div>
         </div>
       </section>
+      <section class="section-projects" id="projects">
+        <div class="projects-grid container">
+          <div class="section-header">
+            <h2>Nos projets</h2>
+          </div>
+          <div class="section-body">
+            <div class="img-container">
+              <img src="<?php echo base_url('images/img-4.webp'); ?>" alt="" />
+              <div class="overlay">
+                <div class="text">
+                  <p>BANIBAH - FRANZETTI</p>
+                  <p>Bassin Ecrêteur de Williamsville</p>
+                </div>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="<?php echo base_url('images/img-5.webp'); ?>" alt="" />
+              <div class="overlay">
+                <div class="text">
+                  <p>SGTM</p>
+                  <p>Aménagement du Carrefour de l'Indenié</p>
+                </div>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="<?php echo base_url('images/img-6.webp'); ?>" alt="" />
+              <div class="overlay">
+                <div class="text">
+                  <p>SODEFOR - CERCIS</p>
+                  <p>Aménagement de la Coulée Verte du Banco</p>
+                </div>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="<?php echo base_url('images/img-7.webp'); ?>" alt="" />
+              <div class="overlay">
+                <div class="text">
+                  <p>SGTM</p>
+                  <p>Embouchure du Fleuve Comoé - Grand Bassam</p>
+                </div>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="<?php echo base_url('images/img-8.webp'); ?>" alt="" />
+              <div class="overlay">
+                <div class="text">
+                  <p>CRBC</p>
+                  <p>Pont Alassane OUATTARA</p>
+                </div>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="<?php echo base_url('images/img-9.webp'); ?>" alt="" />
+              <div class="overlay">
+                <div class="text">
+                  <p>CRBC</p>
+                  <p>Pont Alassane OUATTARA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="section-blog" id="blog">
         <div
           class="container blog-grid grid-gap blog-grid-cols-2 blog-grid-cols-1"
@@ -618,7 +615,7 @@
           </div>
           <div class="blog-main">
             <div class="section-header">
-              <h2>Articles <br />& News</h2>
+              <h2>Articles & News</h2>
             </div>
             <p class="blog-intro">
               Retrouvez ici l'ensemble des articles du Projet relatifs aux

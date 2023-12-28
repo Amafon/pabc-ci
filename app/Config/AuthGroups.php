@@ -41,25 +41,65 @@ class AuthGroups extends ShieldAuthGroups
      * @see https://codeigniter4.github.io/shield/quick_start_guide/using_authorization/#change-available-groups for more info
      */
     public array $groups = [
-        'superadmin' => [
-            'title'       => 'Super Admin',
-            'description' => 'Complete control of the site.',
-        ],
         'admin' => [
             'title'       => 'Admin',
             'description' => 'Day to day administrators of the site.',
         ],
-        'developer' => [
-            'title'       => 'Developer',
-            'description' => 'Site programmers.',
+        'agent' => [
+            'title'       => 'Agent',
+            'description' => 'Agent du Projet PABC.',
+        ],
+        'direction' => [
+            'title'       => 'Direction',
+            'description' => 'Coordonnateur, Chef de Projet ou son Adjoint.',
         ],
         'user' => [
             'title'       => 'User',
             'description' => 'General users of the site. Often customers.',
         ],
-        'beta' => [
-            'title'       => 'Beta User',
-            'description' => 'Has access to beta-level features.',
+        'compta' => [
+            'title'       => 'Comptabilité',
+            'description' => 'Agent du PABC, Agent de la Comptabilité.',
+        ],
+        'rh' => [
+            'title'       => 'Ressources Humaines',
+            'description' => 'Agent du PABC, Agent des Ressources Humaines.',
+        ],
+        'pm' => [
+            'title'       => 'Passation des Marchés',
+            'description' => 'Agent du PABC, Agent de la Passation des Marchés.',
+        ],
+        'rm' => [
+            'title'       => 'Rédaction des Marchés',
+            'description' => 'Agent du PABC, Agent du service Rédaction des Marchés.',
+        ],
+        'sop' => [
+            'title'       => 'Suivi Opérationnel',
+            'description' => 'Agent du PABC, Agent du Suivi Opérationnel.',
+        ],
+        'sev' => [
+            'title'       => 'Suivi Evaluation',
+            'description' => 'Agent du PABC, Agent du Suivi-Evaluation.',
+        ],
+        'senv' => [
+            'title'       => 'Suivi Environnement',
+            'description' => 'Agent du PABC, Agent du Suivi-Environnement.',
+        ],
+        'cai' => [
+            'title'       => 'Contrôle et Audit Interne',
+            'description' => 'Agent du PABC, Agent du Contrôle et de l\'Audit Interne.',
+        ],
+        'com' => [
+            'title'       => 'Communication',
+            'description' => 'Agent du PABC, Agent de la Communication.',
+        ],
+        'mg' => [
+            'title'       => 'Moyens Généraux',
+            'description' => 'Agent du PABC, Agent des Moyens Généraux.',
+        ],
+        'info' => [
+            'title'       => 'Informatique',
+            'description' => 'Agent du PABC, Agent du Service Informatique.',
         ],
     ];
 

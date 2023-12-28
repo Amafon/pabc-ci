@@ -17,7 +17,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('css/style.css') .'?'. time()?>" />
     <title>PABC</title>
   </head>
   <body>
@@ -26,9 +26,19 @@
         <a href="<?= url_to('Home::index')?>" class="link logo">PABC</a>
         <div class="nav-links">
           <a href="<?= url_to('Home::index')?>" class="link link-item">Accueil</a>
-          <a href="<?= url_to('Articles::index')?>" class="link link-item">Articles</a>
           <a href="projets.html" class="link link-item">Projets</a>
-          <a href="<?= site_url('/login') ?>" class="link link-item">Connexion</a>
+          <a href="<?= url_to('Articles::index')?>" class="link link-item">Articles</a>
+          <?php if(auth()->loggedIn() && auth()->user()->inGroup('agent', 'admin')): ?>
+            <a href="<?= site_url('admin') ?>" class="link link-item">Admin</a>
+          <?php endif ;?>
+          <?php if (auth()->loggedIn()):?>
+            <p>Bonjour <em><?=esc(auth()->user()->first_name)?></em></p>
+          <?php endif ;?>
+          <?php if(auth()->loggedIn()) : ?>
+            <a href="<?= url_to('logout');?>" class="link link-item">Déconnexion</a>
+          <?php else :?>
+            <a href="<?= url_to('login');?>" class="link link-item">Connexion</a>
+          <?php endif ;?>
           <i class="fa-solid fa-xmark close"></i>
         </div>
         <i class="fa-solid fa-bars menu"></i>
