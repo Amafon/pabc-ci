@@ -19,7 +19,6 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
-                        <img src="<?=url_to('\admin\Controllers\Articles::getArticleImage', $article->id)?>" alt="Image de l'Article" width="300px">
                         <input type="file" name="image" id="image" placeholder="Sélectionner une image" value="<?=old('image', $article->image)?>">
                     </div>
                     <div class="form-group">

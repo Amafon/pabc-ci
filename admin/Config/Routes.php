@@ -11,6 +11,7 @@ service('auth')->routes($routes);
  * @var RouteCollection $routes
  */
 
+$routes->get('articles/(:num)/show', 'Articles::show/$1');
 $routes->group('admin', ['namespace'=>'admin\Controllers', 'filter'=>'group:agent, admin'], static function ($routes){
     $routes->get('', 'Admin::index');
     $routes->get('set-password', 'Password::set');
@@ -29,12 +30,14 @@ $routes->group('admin', ['namespace'=>'admin\Controllers', 'filter'=>'group:agen
                     $routes->get('articles/index', 'Articles::index');
                     $routes->get('articles/new', 'Articles::new');
                     $routes->post('articles/create', 'Articles::create');
-                    $routes->get('articles/show', 'Articles::show');
+                    $routes->get('articles/(:num)/show', 'Articles::show/$1');
                     $routes->get('articles/(:num)/edit', 'Articles::edit/$1');
-                    $routes->get('articles/(:num)/edit/image', 'Articles::getArticleImage/$1');
-                    $routes->patch('articles/update', 'Articles::update');
-                    $routes->get('articles/delete', 'Articles::confirmDelete');
-                    $routes->delete('articles/delete', 'Articles::delete');
+                    $routes->patch('articles/(:num)/update', 'Articles::update/$1');
+                    $routes->get('articles/(:num)/delete', 'Articles::confirmDelete');
+                    $routes->delete('articles/(:num)/delete', 'Articles::delete/$1');
+                    $routes->get('articles/(:num)/image', 'Article\Image::get/$1');
+                    $routes->post('articles/(:num)/image/create', 'Article\Image::create/$1');
+                    $routes->get('articles/(:num)/image/edit', 'Article\Image::new/$1');
                 });
             });
         });

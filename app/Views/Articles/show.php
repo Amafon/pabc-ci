@@ -4,20 +4,18 @@
       <div class="container container-articles">
         <div class="section-header">
           <header class="article-header">
-            <p class="category">Business</p>
+            <!-- <p class="category">Business</p> -->
+            <p class="category"><?=$category->label?></p>
             <h1 class="article-title">
-              We’re still in a fight for survival when it comes to AI safety
+              <?=$article->title?>
             </h1>
             <p class="article-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-              voluptas beatae cupiditate dolorem quis totam, quo modi neque. Cum
-              facilis esse iusto assumenda corrupti consectetur commodi
-              recusandae numquam sint voluptatem!
+              <?=substr($article->content, 0, 50)?>
             </p>
             <div class="article-infos">
               <img class="author-pro" src="images/art-prof.png" />
-              <p class="article-author">John Doe</p>
-              <p class="article-date">12/12/2023</p>
+              <p class="article-author"><?=$user->first_name?></p>
+              <p class="article-date"><?=date_format($article->created_at, 'd M Y')?></p>
             </div>
           </header>
         </div>
@@ -27,7 +25,8 @@
           <section class="section-articles blog">
             <div class="blog-article">
               <img class="article-img" src="images/art-bg1.png" />
-              <h3 class="blog-heading-tertiary">The confidential data</h3>
+              <?=$article->content?>
+              <!-- <h3 class="blog-heading-tertiary">The confidential data</h3>
               <p>
                 The company announced its Q chatbot during Amazon Web Service’s
                 (AWS) annual developer conference—and it’s already “experiencing
@@ -99,7 +98,7 @@
                 as well as Titan, its in-house AI image generator, according to
                 the Times. Amazon has set initial pricing at $20 per user per
                 month.
-              </p>
+              </p> -->
             </div>
           </section>
           <aside class="section-aside blog">

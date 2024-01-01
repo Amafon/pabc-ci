@@ -17,7 +17,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="<?php echo base_url('css/style.css') .'?'. time()?>" />
+    <link rel="stylesheet" href="<?php echo base_url('css/style.css')?>" />
     <title>PABC</title>
   </head>
   <body>
