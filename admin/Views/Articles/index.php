@@ -14,7 +14,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Titre</th>
-                                <th>Contenu</th>
+                                <!-- <th>Contenu</th> -->
                                 <th>Auteur</th>
                                 <th>Catégorie</th>
                                 <th>Etiquette</th>
@@ -30,7 +30,6 @@
                                <tr>
                                     <td style="text-align: center;"><?=$article->id?></td>
                                     <td><?=esc(substr($article->title, 0, 13))?></td>
-                                    <td><?=esc(substr($article->content, 0, 13))?></td>
                                     <td><?=esc($article->first_name)?></td>
                                     <td><?=esc($article->label)?></td>
                                     <td><?=esc($article->tag)?></td>
@@ -47,7 +46,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Titre</th>
-                                <th>Contenu</th>
+                                <!-- <th>Contenu</th> -->
                                 <th>Auteur</th>
                                 <th>Catégorie</th>
                                 <th>Etiquette</th>

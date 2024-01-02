@@ -18,10 +18,6 @@
                         <textarea class="" type="text" name="content" id="niceEdit" placeholder="Entrer le contenu de l'article" style="width: 100%;"><?=old('content')?></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="file" name="image" id="image" placeholder="Sélectionner une image" value="<?=old('image')?>">
-                    </div>
-                    <div class="form-group">
                         <label for="category">Catégorie</label>
                         <select name="category" id="category">
                             <option >Sélectionner une catégorie</option>

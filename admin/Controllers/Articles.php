@@ -101,9 +101,11 @@ class Articles extends BaseController
     {
         
         $article = $this->getArticleOr404($id);
+        $categories =     $this->catModel->findAll();
 
         $data = [
             'article'=>$article,
+            'categories'=>$categories,
         ];
 
         return view('admin\Views\Articles\edit.php', $data);

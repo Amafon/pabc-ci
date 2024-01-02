@@ -1,4 +1,4 @@
-<?=$this->extend('Layouts/adminDefault.php')?>
+'<?=$this->extend('Layouts/adminDefault.php')?>
 <?=$this->section('content')?>
     <div class="overview">
         <div class="title">
