@@ -24,11 +24,10 @@ class ArticlesModel extends Model
     // Validation
     protected $validationRules      = [
         'title'=>'required|min_length[25]|max_length[100]',
-        'content'=>'required|min_length[100]|max_length[10000]',
+        'content'=>'required|min_length[100]',
         'user_id'=>'required|numeric',
         'category_id'=>'required|numeric',
         'tag'=>'required|min_length[3]|max_length[20]',
-        'image'=>'required',
 
     ];
     protected $validationMessages   = [
@@ -40,7 +39,6 @@ class ArticlesModel extends Model
         'content'=>[
             'required'=>'Le contenu est obligatoire',
             'min_length'=>'{param} caractères minimums pour le contenu',
-            'max_length'=>'{param} caractères maximums pour le contenu',
         ],
         'user_id'=>[
             'required'=>'Le nom de l\'auteur est obligatoire',
@@ -52,9 +50,6 @@ class ArticlesModel extends Model
             'required'=>'Le tag de l\'article est obligatoire',
             'min_length'=>'{param} caractères minimums pour le tag',
             'max_length'=>'{param} caractères maximums pour le tag',
-        ],
-        'image'=>[
-            'required'=>'L\'image de l\'article est obligatoire',
         ],
 
     ];

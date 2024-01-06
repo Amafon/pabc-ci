@@ -21,8 +21,7 @@ class Image extends BaseController
     private function getArticleOr404($id)
     {
         $article = $this->model->find($id);
-        if($article === null)
-        {
+        if ($article === null) {
             throw new PageNotFoundException('L\'id ' . $id . ' n\'existe pas.');
         }
         return $article;
@@ -32,7 +31,7 @@ class Image extends BaseController
     {
         $article = $this->getArticleOr404($id);
 
-        return view('\admin\Views\Article\Image\new.php', ['article'=>$article]);
+        return view('\admin\Views\Article\Image\new.php', ['article' => $article]);
     }
 
     public function create($id)
@@ -44,34 +43,30 @@ class Image extends BaseController
         // dd($file);   
 
         // Vérifier que le fichier envoyé est valide
-        if(! $file->isValid())
-        {
+        if (!$file->isValid()) {
             $error_code = $file->getError();
 
-            if($error_code === UPLOAD_ERR_NO_FILE)
-            {
+            if ($error_code === UPLOAD_ERR_NO_FILE) {
                 return redirect()->back()
-                                 ->with('errors', ['Pas de fichier sélectionné'])
-                                 ->withInput();;
+                    ->with('errors', ['Pas de fichier sélectionné'])
+                    ->withInput();
             }
 
             throw new RuntimeException($file->getErrorString() . ' ' . $error_code);
         }
 
         // Vérifier que la taille du fichier joint ne dépasse pas 2 Mo
-        if($file->getSizeByUnit('mb') > 3)
-        {
+        if ($file->getSizeByUnit('mb') > 3) {
             return redirect()->back()
-                             ->with('errors', ['Taille du fichier trop grande'])
-                             ->withInput();;
+                ->with('errors', ['Taille du fichier trop grande'])
+                ->withInput();
         }
 
         // Vérifier que le type du fichier soit png ou jpeg ou webp
-        if(! in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg', 'image/webp']))
-        {
+        if (!in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/avif'])) {
             return redirect()->back()
-                             ->with('errors', ['Format du fichier incorrect'])
-                             ->withInput();;
+                ->with('errors', ['Format du fichier incorrect'])
+                ->withInput();
         }
 
         // Move the upload file to a permanent location
@@ -79,27 +74,26 @@ class Image extends BaseController
 
         $path = WRITEPATH . 'uploads/' . $path;
         service('image')->withFile($path)
-                        ->fit(1500, 800, 'center')
-                        ->save($path);
+            ->fit(1500, 800, 'center')
+            ->save($path);
 
         // Save the Name of the Uploaded File to the Article Record
         $article->image = $file->getName();
 
         $this->model->protect(false)
-                    ->save($article);
+            ->save($article);
 
         // return redirect()->to('articles/' . $id)
         //                  ->with('message', 'Image Uplaod');
 
-        
+
     }
 
     public function get($id)
     {
         $article = $this->getArticleOr404($id);
-        
-        if($article->image)
-        {
+
+        if ($article->image) {
             $path = WRITEPATH . "uploads/article_images/" . $article->image;
 
             $finfo = new finfo(FILEINFO_MIME);

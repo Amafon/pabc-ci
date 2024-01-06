@@ -29,8 +29,7 @@ class Articles extends BaseController
     {
         $article = $this->model->find($id);
 
-        if($article === null)
-        {
+        if ($article === null) {
             throw new PageNotFoundException('L\'id ' . $id . ' n\'existe pas.');
         }
         return $article;
@@ -44,13 +43,13 @@ class Articles extends BaseController
     public function index()
     {
         $articles = $this->model->select('articles.*, users.first_name, categories.label')
-                                ->join('users', 'users.id = articles.user_id')
-                                ->join('categories', 'categories.id = articles.category_id')
-                                ->orderBy('created_at')
-                                ->findAll();
+            ->join('users', 'users.id = articles.user_id')
+            ->join('categories', 'categories.id = articles.category_id')
+            ->orderBy('created_at')
+            ->findAll();
 
         $data = [
-            'articles'=>$articles,
+            'articles' => $articles,
             // 'pager'=>$this->model->pager
         ];
         return view('admin\Views\Articles\index.php', $data);
@@ -58,7 +57,14 @@ class Articles extends BaseController
 
     public function new()
     {
-        return view('admin\Views\Articles\new.php');
+
+        $categories =     $this->catModel->findAll();
+
+        $data = [
+            'categories' => $categories,
+        ];
+
+        return view('admin\Views\Articles\new.php', $data);
     }
 
     public function create()
@@ -66,18 +72,17 @@ class Articles extends BaseController
         $article = new Article($this->request->getPost());
 
         $article->user_id = auth()->user()->id;
-        
+
         $id = $this->model->insert($article);
 
-        if($id===false)
-        {
+        if ($id === false) {
             return redirect()->back()
-                             ->with('errors', $this->model->errors())
-                             ->withInput();
+                ->with('errors', $this->model->errors())
+                ->withInput();
         }
 
         return redirect()->to('admin/services/com/site/articles/new')
-                         ->with('message', 'L\'article ' . $id . ' a été crée avec succès.');
+            ->with('message', 'L\'article ' . $id . ' a été crée avec succès.');
     }
 
     public function show($id)
@@ -89,9 +94,9 @@ class Articles extends BaseController
         $user =         $this->userModel->where('id', $article->user_id)->first();
 
         $data = [
-            'article'       =>$article,
-            'category'      =>$category,
-            'user'          =>$user,
+            'article'       => $article,
+            'category'      => $category,
+            'user'          => $user,
         ];
 
         return view('Articles/show.php', $data);
@@ -99,15 +104,62 @@ class Articles extends BaseController
 
     public function edit($id)
     {
-        
+
         $article = $this->getArticleOr404($id);
+
         $categories =     $this->catModel->findAll();
 
         $data = [
-            'article'=>$article,
-            'categories'=>$categories,
+            'article' => $article,
+            'categories' => $categories,
         ];
 
         return view('admin\Views\Articles\edit.php', $data);
+    }
+
+    public function update($id)
+    {
+        // $article = $this->getArticleOr404($id);
+
+        // $article->fill($this->request->getPost());
+
+        // dd($this->request->getPost());
+
+        if ($this->model->update($id, $this->request->getPost())) {
+
+            echo "Aricle mis à jour";
+            // return redirect()
+            //     ->to("admin/services/com/site/articles/$id/show")
+            //     ->with('message', "Article Update");
+        }
+
+        return redirect()
+            ->back()
+            ->with('errors', $this->model->errors())
+            ->withInput();
+    }
+
+    public function confirmDelete($id)
+    {
+        $article = $this->getArticleOr404($id);
+
+        $data = [
+            'article' => $article,
+        ];
+
+        return view('\admin\Views\Articles\confirmDelete.php', $data);
+    }
+
+    public function delete($id)
+    {
+        $result = $this->model->delete($id);
+
+        if (!$result) {
+
+            return redirect()->back()
+                ->with('errors', ["L'article $id n'a pas été supprimé."]);
+        }
+
+        return redirect()->to('admin/services/com/site/articles');
     }
 }

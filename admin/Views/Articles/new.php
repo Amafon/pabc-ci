@@ -19,14 +19,11 @@
                     </div>
                     <div class="form-group">
                         <label for="category">Catégorie</label>
-                        <select name="category" id="category">
-                            <option >Sélectionner une catégorie</option>
-                            <option value="1">Pont de Cocody</option>
-                            <option value="2">Embouchure de Grand Bassam</option>
-                            <option value="3">Coulée Verte du Banco</option>
-                            <option value="4">Bassin Ecrêteur de Williamsville</option>
-                            <option value="5">Carrefour de l'Indenié</option>
-                            <option value="6">STEP Fraternité Matin</option>
+                        <select name="category_id" id="category">
+                            <option value="">Sélectionner une catégorie</option> 
+                            <?php foreach($categories as $category):?>
+                                <option value="<?=$category->id?>" <?= old('category_id') === $category->label ? 'selected':'';?>><?=$category->label?></option> 
+                            <?php endforeach;?>
                         </select>
                     </div>
                     <div class="form-group">
