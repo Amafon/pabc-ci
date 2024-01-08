@@ -127,10 +127,8 @@ class Articles extends BaseController
 
         if ($this->model->update($id, $this->request->getPost())) {
 
-            echo "Aricle mis à jour";
-            // return redirect()
-            //     ->to("admin/services/com/site/articles/$id/show")
-            //     ->with('message', "Article Update");
+            // echo "Aricle mis à jour";
+            return redirect()->to("articles/$id/show");
         }
 
         return redirect()

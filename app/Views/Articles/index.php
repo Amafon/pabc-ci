@@ -9,25 +9,25 @@
       <div class="container">
         <div class="articles">
           <section class="section-articles">
-            <div class="article">
-              <a href="<?= url_to('Articles::show')?>" class="article_link">
-                <img class="article-img" src="<?php echo base_url('images/art-bg1.png'); ?>" />
-              </a>
-              <div class="article-block">
-                <p class="article-title">Lorem ipsum dolor sit.</p>
-                <p class="article-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolore accusamus consequuntur quisquam quam, placeat sequi
-                  eveniet nesciunt ratione quaerat optio!
-                </p>
-                <div class="article-infos">
-                  <img class="author-pro" src="<?php echo base_url('images/art-prof.png'); ?>" />
-                  <p class="article-author">John Doe</p>
-                  <p class="article-category">Business</p>
+            <?php foreach($articles as $article):?>
+              <div class="article">
+                <a href="<?= url_to('Articles::show', $article->id)?>" class="article_link">
+                  <img class="article-img" src="<?=$article->image?>" />
+                </a>
+                <div class="article-block">
+                  <p class="article-title"><?=substr(esc($article->title), 0, 30) . '...'?></p>
+                  <p class="article-description">
+                    <?=substr(esc($article->content), 0, 150)?>
+                  </p>
+                  <div class="article-infos">
+                    <img class="author-pro" src="<?php echo base_url('images/art-prof.png'); ?>" />
+                    <p class="article-author"><?=esc($article->first_name)?></p>
+                    <p class="article-category"><?=esc($article->label)?></p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="article">
+            <?php endforeach;?>
+            <!-- <div class="article">
               <a href="" class="article_link">
                 <img class="article-img" src="<?php echo base_url('images/art-bg2.png'); ?>" />
               </a>
@@ -98,7 +98,7 @@
                   <p class="article-category">Business</p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </section>
           <aside class="section-aside">
             <form action="" class="form-search">
