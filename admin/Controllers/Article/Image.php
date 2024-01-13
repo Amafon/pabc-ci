@@ -56,7 +56,7 @@ class Image extends BaseController
         }
 
         // Vérifier que la taille du fichier joint ne dépasse pas 2 Mo
-        if ($file->getSizeByUnit('mb') > 3) {
+        if ($file->getSizeByUnit('mb') > 10) {
             return redirect()->back()
                 ->with('errors', ['Taille du fichier trop grande'])
                 ->withInput();
@@ -70,21 +70,27 @@ class Image extends BaseController
         }
 
         // Move the upload file to a permanent location
-        $path = $file->store('article_images');
+        // dd(FCPATH);
+        // $path = $file->store(FCPATH);
+        $path = $file->move(FCPATH . "article_images\\");
 
-        $path = WRITEPATH . 'uploads/' . $path;
+        // dd($path);
+        $path = FCPATH . "article_images\\" . $file->getName();
+        // dd($path);
+
         service('image')->withFile($path)
             ->fit(1500, 800, 'center')
             ->save($path);
 
         // Save the Name of the Uploaded File to the Article Record
         $article->image = $file->getName();
+        // dd($article->image);
 
         $this->model->protect(false)
             ->save($article);
 
-        // return redirect()->to('articles/' . $id)
-        //                  ->with('message', 'Image Uplaod');
+        return redirect()->to('articles/' . $id . '/show');
+        //  ->with('message', 'Image Uplaod');
 
 
     }

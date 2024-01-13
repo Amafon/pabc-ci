@@ -37,20 +37,30 @@ class Articles extends BaseController
 
     public function index()
     {
-        $articles = $this->model->select('articles.*, categories.label, users.first_name')
-                                ->join('categories', 'categories.id = articles.category_id')
-                                ->join('users', 'users.id = articles.user_id')
-                                ->findAll();
-
-        foreach($articles as $article)
-        {
-            $article->image = WRITEPATH . 'uploads/article_images/' . $article->image;
+        $param = $this->request->getGet();
+        if ($param) {
+            $articles = $this->model->select('articles.*, categories.label, users.first_name')
+                ->join('categories', 'categories.id = articles.category_id')
+                ->join('users', 'users.id = articles.user_id')
+                ->where('category_id', $param['category'])
+                ->findAll();
+        } else {
+            $articles = $this->model->select('articles.*, categories.label, users.first_name')
+                ->join('categories', 'categories.id = articles.category_id')
+                ->join('users', 'users.id = articles.user_id')
+                ->findAll();
         }
 
-        dd($articles[0]->image);
-        
+        $categories = $this->catModel->findAll();
+
+        foreach ($categories as $category) {
+            $nb = count($this->model->where('category_id', $category->id)->findAll());
+            $category->nb = $nb;
+        }
+
         $data = [
-            'articles'=>$articles,
+            'articles'  => $articles,
+            'categories' => $categories,
         ];
 
         return view('Articles/index.php', $data);
@@ -76,8 +86,7 @@ class Articles extends BaseController
     public function getImage($id)
     {
         $article = $this->getArticleOr404($id);
-        if($article->image)
-        {
+        if ($article->image) {
             $path = WRITEPATH . 'uploads/article_images/' . $article->image;
             $finfo = new finfo(FILEINFO_MIME);
             $type = $finfo->file($path);

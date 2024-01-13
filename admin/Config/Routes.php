@@ -36,8 +36,8 @@ $routes->group('admin', ['namespace' => 'admin\Controllers', 'filter' => 'group:
                     $routes->get('articles/(:num)/delete', 'Articles::confirmDelete');
                     $routes->delete('articles/(:num)/delete', 'Articles::delete/$1');
                     $routes->get('articles/(:num)/image', 'Article\Image::get/$1');
-                    $routes->post('articles/(:num)/image/create', 'Article\Image::create/$1');
                     $routes->get('articles/(:num)/image/edit', 'Article\Image::new/$1');
+                    $routes->post('articles/(:num)/image/create', 'Article\Image::create/$1');
                 });
             });
         });
