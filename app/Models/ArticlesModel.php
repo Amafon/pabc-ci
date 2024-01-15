@@ -12,7 +12,7 @@ class ArticlesModel extends Model
     protected $returnType       = \App\Entities\Article::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'content', 'user_id', 'category_id', 'tag', 'image'];
+    protected $allowedFields    = ['title', 'description', 'content', 'user_id', 'category_id', 'tag', 'image'];
 
     // Dates
     protected $useTimestamps = false;
@@ -23,33 +23,39 @@ class ArticlesModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'title'=>'required|min_length[25]|max_length[100]',
-        'content'=>'required|min_length[100]',
-        'user_id'=>'required|numeric',
-        'category_id'=>'required|numeric',
-        'tag'=>'required|min_length[3]|max_length[20]',
+        'title' => 'required|min_length[25]|max_length[100]',
+        'description' => 'required|min_length[25]|max_length[150]',
+        'content' => 'required|min_length[100]',
+        'user_id' => 'required|numeric',
+        'category_id' => 'required|numeric',
+        'tag' => 'required|min_length[3]|max_length[20]',
 
     ];
     protected $validationMessages   = [
-        'title'=>[
-            'required'=>'Ce champ est obligatoire',
-            'min_length'=>'{param} caractères minimums pour le titre',
-            'max_length'=>'{param} caractères maximums pour le titre',
+        'title' => [
+            'required' => 'Ce champ est obligatoire',
+            'min_length' => '{param} caractères minimums pour le titre',
+            'max_length' => '{param} caractères maximums pour le titre',
         ],
-        'content'=>[
-            'required'=>'Le contenu est obligatoire',
-            'min_length'=>'{param} caractères minimums pour le contenu',
+        'description' => [
+            'required' => 'Ce champ est obligatoire',
+            'min_length' => '{param} caractères minimums pour la {field}',
+            'max_length' => '{param} caractères maximums pour la {field}',
         ],
-        'user_id'=>[
-            'required'=>'Le nom de l\'auteur est obligatoire',
+        'content' => [
+            'required' => 'Le contenu est obligatoire',
+            'min_length' => '{param} caractères minimums pour le contenu',
         ],
-        'category_id'=>[
-            'required'=>'Le nom de la catégorie est obligatoire',
+        'user_id' => [
+            'required' => 'Le nom de l\'auteur est obligatoire',
         ],
-        'tag'=>[
-            'required'=>'Le tag de l\'article est obligatoire',
-            'min_length'=>'{param} caractères minimums pour le tag',
-            'max_length'=>'{param} caractères maximums pour le tag',
+        'category_id' => [
+            'required' => 'Le nom de la catégorie est obligatoire',
+        ],
+        'tag' => [
+            'required' => 'Le tag de l\'article est obligatoire',
+            'min_length' => '{param} caractères minimums pour le tag',
+            'max_length' => '{param} caractères maximums pour le tag',
         ],
 
     ];

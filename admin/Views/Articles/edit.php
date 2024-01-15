@@ -13,6 +13,10 @@
                 <label for="title">Titre</label>
                 <input type="text" name="title" id="title" placeholder="Entrer le titre de l'article" value="<?= old('title', $article->title) ?>">
             </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" placeholder="Entrer la description de l'article" value="<?= old('description', $article->description) ?>">
+            </div>
             <div class="form-group niceEdit">
                 <label for="niceEdit">Contenu</label>
                 <textarea class="" type="text" name="content" id="niceEdit" placeholder="Entrer le contenu de l'article" style="width: 100%;"><?= old('content', $article->content) ?></textarea>
