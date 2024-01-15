@@ -10,12 +10,12 @@
           <?= $article->title ?>
         </h1>
         <p class="article-description">
-          <?= substr($article->content, 0, 50) ?>
+          <?= esc($article->description) ?>
         </p>
         <div class="article-infos">
-          <img class="author-pro" src="images/art-prof.png" />
+          <img class="author-pro" src="<?php echo base_url('images/art-prof.png'); ?>" />
           <p class="article-author"><?= $user->first_name ?></p>
-          <p class="article-date"><?= date_format($article->created_at, 'd M Y') ?></p>
+          <p class="article-date"><?= date_format($article->created_at, 'd F Y') ?></p>
         </div>
       </header>
     </div>
@@ -33,68 +33,29 @@
           <input type="text" name="article-input" id="" placeholder="Chercher un article" />
           <input type="submit" value="Chercher" />
         </form>
-        <p class="categories_title">Categories</p>
+        <p class="categories_title">Catégories</p>
         <div class="aside-categories">
           <ul class="category_list">
-            <li class="category_list_item">
-              <a href="" class="category_link"><span class="category_name">Business</span>
-                <span class="category_number">42</span></a>
-            </li>
-            <li class="category_list_item">
-              <a href="" class="category_link"><span class="category_name">Tech</span>
-                <span class="category_number">73</span></a>
-            </li>
-            <li class="category_list_item">
-              <a href="" class="category_link"><span class="category_name">Science</span>
-                <span class="category_number">99</span></a>
-            </li>
-            <li class="category_list_item">
-              <a href="" class="category_link"><span class="category_name">Sports</span>
-                <span class="category_number">7</span></a>
-            </li>
-            <li class="category_list_item">
-              <a href="" class="category_link"><span class="category_name">Travel</span>
-                <span class="category_number">15</span></a>
-            </li>
+            <?php foreach ($categories as $category) : ?>
+              <?php if ((int)$category->nb != 0) : ?>
+                <li class="category_list_item">
+                  <a href="<?= site_url('articles?category=' . $category->id) ?>" class="category_link"><span class="category_name"><?= $category->label ?></span>
+                    <span class="category_number"><?= $category->nb ?></span></a>
+                </li>
+              <?php endif; ?>
+            <?php endforeach ?>
           </ul>
         </div>
         <div class="aside-posts">
-          <p class="posts-intro">Recent Posts</p>
+          <p class="posts-intro">Articles récents</p>
           <div class="posts">
-            <div class="post">
-              <a href="" class="post-link"><img src="images/post-1.png" alt="" class="post-img" /></a>
-              <p class="post-title">Lorem ipsum dolor sit amet</p>
-              <p class="post-date">03 septembre 2023</p>
-            </div>
-            <div class="post">
-              <a href="" class="post-link"><img src="images/post-2.png" alt="" class="post-img" /></a>
-              <p class="post-title">Lorem ipsum dolor sit amet</p>
-              <p class="post-date">03 octobre 2023</p>
-            </div>
-            <div class="post">
-              <a href="" class="post-link"><img src="images/post-3.png" alt="" class="post-img" /></a>
-              <p class="post-title">Lorem ipsum dolor sit amet</p>
-              <p class="post-date">03 novembre 2023</p>
-            </div>
-            <div class="post">
-              <a href="" class="post-link"><img src="images/post-4.png" alt="" class="post-img" /></a>
-              <p class="post-title">Lorem ipsum dolor sit amet</p>
-              <p class="post-date">03 décembre 2023</p>
-            </div>
-          </div>
-        </div>
-        <div class="aside-tags">
-          <p class="tags-intro">Tags</p>
-          <div class="tags">
-            <a href="#" class="tag">World</a>
-            <a href="#" class="tag">Business</a>
-            <a href="#" class="tag">Tech</a>
-            <a href="#" class="tag">Science</a>
-            <a href="#" class="tag">Health</a>
-            <a href="#" class="tag">Sports</a>
-            <a href="#" class="tag">Arts</a>
-            <a href="#" class="tag">Books</a>
-            <a href="#" class="tag">Style</a>
+            <?php foreach ($articles as $article) : ?>
+              <div class="post">
+                <a href="<?= url_to('Articles::show', $article->id) ?>" class="post-link"><img src="<?= base_url('article_images/' . $article->image) ?>" alt="" class="post-img" /></a>
+                <p class="post-title"><?= substr(esc($article->title), 0, 20) . '...' ?></p>
+                <p class="post-date"><?= date_format($article->created_at, 'd F Y') ?></p>
+              </div>
+            <?php endforeach ?>
           </div>
         </div>
       </aside>

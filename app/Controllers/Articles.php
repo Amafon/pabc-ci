@@ -58,8 +58,11 @@ class Articles extends BaseController
             $category->nb = $nb;
         }
 
+        $articles2       = $this->model->findAll(4);
+
         $data = [
             'articles'  => $articles,
+            'articles2'  => $articles2,
             'categories' => $categories,
         ];
 
@@ -68,15 +71,26 @@ class Articles extends BaseController
 
     public function show($id)
     {
-        $article =      $this->getArticleOr404($id);
+        $article        = $this->getArticleOr404($id);
 
-        $category =     $this->catModel->where('id', $article->category_id)->first();
+        $articles       = $this->model->findAll(4);
 
-        $user =         $this->userModel->where('id', $article->user_id)->first();
+        $category       = $this->catModel->where('id', $article->category_id)->first();
+
+        $categories     = $this->catModel->findAll();
+
+        $user           = $this->userModel->where('id', $article->user_id)->first();
+
+        foreach ($categories as $category) {
+            $nb = count($this->model->where('category_id', $category->id)->findAll());
+            $category->nb = $nb;
+        }
 
         $data = [
             'article'       => $article,
+            'articles'      => $articles,
             'category'      => $category,
+            'categories'    => $categories,
             'user'          => $user,
         ];
 

@@ -119,16 +119,20 @@ class Articles extends BaseController
 
     public function update($id)
     {
-        // $article = $this->getArticleOr404($id);
+        $article = $this->getArticleOr404($id);
 
-        // $article->fill($this->request->getPost());
+        $article->fill($this->request->getPost());
 
-        // dd($this->request->getPost());
+        if (!$article->hasChanged()) {
 
-        if ($this->model->update($id, $this->request->getPost())) {
+            return redirect()->back()
+                ->with('message', 'Nothing to update');
+        }
 
-            // echo "Aricle mis à jour";
-            return redirect()->to("articles/$id/show");
+        if ($this->model->save($article)) {
+
+            return redirect()->to("articles/$id/show")
+                ->with('message', 'Article Updated');
         }
 
         return redirect()

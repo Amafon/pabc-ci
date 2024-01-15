@@ -128,7 +128,7 @@
     <div class="container">
       <div class="managers-grid">
         <div class="section-header">
-          <h2>Notre Equipe</h2>
+          <h2>Les parties prenantes</h2>
         </div>
         <!-- Slider main container -->
         <div class="swiper">
@@ -143,60 +143,6 @@
                 <h3>Robert Beugré Mambé</h3>
                 <h5>Premier Ministre, Chef du Gouvernement</h5>
                 <h6>Président du Comité de Pilotage</h6>
-                <div class="inner">
-                  <p>
-                    Le Comité de Pilotage est chargé de la supervision, de
-                    la coordination et du pilotage du Projet de toutes les
-                    activités liées à la préparation, la mise en oeuvre, du
-                    suivi et de l'évaluation des activités.
-                  </p>
-                  <p class="missions">
-                    Le Comité a pour missions de définir:
-                  </p>
-                  <ul class="list">
-                    <li class="list-item">
-                      <div class="icon-container">
-                        <ion-icon name="checkmark-outline" class="icon"></ion-icon>
-                      </div>
-                      <span>Les objectifs des projets</span>
-                    </li>
-                    <li class="list-item">
-                      <div class="icon-container">
-                        <ion-icon name="checkmark-outline" class="icon"></ion-icon>
-                      </div>
-                      <span>Les grandes caractéristiques des projets</span>
-                    </li>
-                    <li class="list-item">
-                      <div class="icon-container">
-                        <ion-icon name="checkmark-outline" class="icon"></ion-icon>
-                      </div>
-                      <span>Les procédures de contractualisation des
-                        projets</span>
-                    </li>
-                    <li class="list-item">
-                      <div class="icon-container">
-                        <ion-icon name="checkmark-outline" class="icon"></ion-icon>
-                      </div>
-                      <span>Les modalités de réalisation des projets</span>
-                    </li>
-                    <li class="list-item">
-                      <div class="icon-container">
-                        <ion-icon name="checkmark-outline" class="icon"></ion-icon>
-                      </div>
-                      <span>La validation des travaux du comité technique</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide slide-2">
-              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-slider2.png'); ?>");'>
-                <!-- <img src="images/img-slider2.png" alt="" /> -->
-              </div>
-              <div class="activities-content">
-                <h3>Georges Koffi BOLAMO</h3>
-                <h5>Directeur de Cabinet Adjoint de la Primature</h5>
-                <h6>Membre du Comité de Pilotage</h6>
                 <div class="inner">
                   <p>
                     Le Comité de Pilotage est chargé de la supervision, de
@@ -298,7 +244,7 @@
               </div>
             </div>
             <div class="swiper-slide slide-4">
-              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-slider4.png'); ?>");'>
+              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-dcf.jpg'); ?>");'>
                 <!-- <img src="images/img-slider4.png" alt="" /> -->
               </div>
               <div class="activities-content">
@@ -487,38 +433,19 @@
   <section class="section-blog" id="blog">
     <div class="container blog-grid grid-gap blog-grid-cols-2 blog-grid-cols-1">
       <div class="blog-articles">
-        <div class="blog-article">
-          <p class="blog-date">09 décembre 2023</p>
-          <p class="blog-title"><a href="#">Pont de Cocody</a></p>
-          <p class="blog-description">
-            Lancement des travaux du Pont de Cocody
-          </p>
-        </div>
-        <div class="blog-article">
-          <p class="blog-date">10 décembre 2023</p>
-          <p class="blog-title"><a href="#">Carrefour de l'Indenié</a></p>
-          <p class="blog-description">
-            Lancement des travaux d'aménagement du Carrefour de l'Indenie
-          </p>
-        </div>
-        <div class="blog-article">
-          <p class="blog-date">11 décembre 2023</p>
-          <p class="blog-title"><a href="#">Bassin Ecrêteur</a></p>
-          <p class="blog-description">
-            Lancement des travaux de construction du Bassin d'Ecrêteur
-          </p>
-        </div>
-        <div class="blog-article">
-          <p class="blog-date">12 décembre 2023</p>
-          <p class="blog-title"><a href="#">Coulée Verte</a></p>
-          <p class="blog-description">
-            Lancement des travaux d'aménagement de la Coulée verte
-          </p>
-        </div>
+        <?php foreach ($articles as $article) : ?>
+          <div class="blog-article">
+            <p class="blog-date"><?= date_format($article->created_at, 'd F Y') ?></p>
+            <p class="blog-title"><a href="#"><?= substr(esc($article->title), 0, 22) . "..." ?></a></p>
+            <p class="blog-description">
+              <?= esc($article->description) ?>
+            </p>
+          </div>
+        <?php endforeach; ?>
       </div>
       <div class="blog-main">
         <div class="section-header">
-          <h2>Articles & News</h2>
+          <h2>Articles & Actualité</h2>
         </div>
         <p class="blog-intro">
           Retrouvez ici l'ensemble des articles du Projet relatifs aux

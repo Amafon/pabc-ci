@@ -14,15 +14,15 @@
                         <tr>
                             <th>Id</th>
                             <th>Titre</th>
-                            <!-- <th>Contenu</th> -->
+                            <th>Description</th>
                             <th>Auteur</th>
                             <th>Catégorie</th>
                             <th>Etiquette</th>
                             <th>Date de création</th>
                             <th>Image</th>
-                            <th>Article</th>
-                            <th>Article</th>
-                            <th>Articles</th>
+                            <th>Voir</th>
+                            <th>Editer</th>
+                            <th>Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +30,7 @@
                             <tr>
                                 <td style="text-align: center;"><?= $article->id ?></td>
                                 <td><?= esc(substr($article->title, 0, 13)) ?></td>
+                                <td><?= esc(substr($article->description, 0, 13)) ?></td>
                                 <td><?= esc($article->first_name) ?></td>
                                 <td><?= esc($article->label) ?></td>
                                 <td><?= esc($article->tag) ?></td>
@@ -46,15 +47,15 @@
                         <tr>
                             <th>Id</th>
                             <th>Titre</th>
-                            <!-- <th>Contenu</th> -->
+                            <th>Description</th>
                             <th>Auteur</th>
                             <th>Catégorie</th>
                             <th>Etiquette</th>
                             <th>Date de création</th>
                             <th>Image</th>
-                            <th>Article</th>
-                            <th>Article</th>
-                            <th>Article</th>
+                            <th>Voir</th>
+                            <th>Editer</th>
+                            <th>Supprimer</th>
                         </tr>
                     </tfoot>
                 </table>
