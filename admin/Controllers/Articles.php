@@ -167,62 +167,46 @@ class Articles extends BaseController
 
         $file = $this->request->getFile('image');
 
-        // Vérifier que le fichier envoyé est valide
-        if (!$file->isValid()) {
-            $error_code = $file->getError();
+        // Vérifier qu'un fichier a été joint
+        if ($file->isValid()) {
 
-            if ($error_code === UPLOAD_ERR_NO_FILE) {
+            // Vérifier que la taille du fichier joint ne dépasse pas 2 Mo
+            if ($file->getSizeByUnit('mb') > 10) {
                 return redirect()->back()
-                    ->with('errors', ['Pas de fichier sélectionné'])
+                    ->with('errors', ['Taille du fichier trop grande'])
                     ->withInput();
             }
 
-            throw new RuntimeException($file->getErrorString() . ' ' . $error_code);
+            // Vérifier que le type du fichier soit png ou jpeg ou webp
+            if (!in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/avif'])) {
+                return redirect()->back()
+                    ->with('errors', ['Format du fichier incorrect'])
+                    ->withInput();
+            }
+
+            // Move the upload file to a permanent location
+            $path = $file->move(FCPATH . "article_images\\");
+
+            $path = FCPATH . "article_images\\" . $file->getName();
+
+            service('image')->withFile($path)
+                ->fit(1500, 800, 'center')
+                ->save($path);
+
+            // Save the Name of the Uploaded File to the Article Record
+            $article->image = $file->getName();
         }
-
-        // Vérifier que la taille du fichier joint ne dépasse pas 2 Mo
-        if ($file->getSizeByUnit('mb') > 10) {
-            return redirect()->back()
-                ->with('errors', ['Taille du fichier trop grande'])
-                ->withInput();
-        }
-
-        // Vérifier que le type du fichier soit png ou jpeg ou webp
-        if (!in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/avif'])) {
-            return redirect()->back()
-                ->with('errors', ['Format du fichier incorrect'])
-                ->withInput();
-        }
-
-        // Move the upload file to a permanent location
-        $path = $file->move(FCPATH . "article_images\\");
-
-        $path = FCPATH . "article_images\\" . $file->getName();
-
-        service('image')->withFile($path)
-            ->fit(1500, 800, 'center')
-            ->save($path);
-
-
-        if ($article->image === $file->getName()) {
-
-            return redirect()->back()
-                ->with('message', 'Nothing to update');
-        }
-
-        // Save the Name of the Uploaded File to the Article Record
-        $article->image = $file->getName();
 
         if (!$article->hasChanged()) {
 
             return redirect()->back()
-                ->with('message', 'Nothing to update');
+                ->with('message', 'L\'article n\'a pas été modifié.');
         }
 
         if ($this->model->save($article)) {
 
             return redirect()->to("articles/$id/show")
-                ->with('message', 'Article Updated');
+                ->with('message', 'Article mis à jour');
         }
 
         return redirect()
