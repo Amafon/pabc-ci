@@ -17,9 +17,7 @@
                             <th>Description</th>
                             <th>Auteur</th>
                             <th>Catégorie</th>
-                            <th>Etiquette</th>
                             <th>Date de création</th>
-                            <th>Image</th>
                             <th>Voir</th>
                             <th>Editer</th>
                             <th>Supprimer</th>
@@ -30,13 +28,10 @@
                             <tr>
                                 <td style="text-align: center;"><?= $article->id ?></td>
                                 <td><?= esc(substr($article->title, 0, 13)) ?></td>
-                                <td><?= esc(substr($article->description, 0, 13)) ?></td>
+                                <td><?= esc(substr($article->description, 0, 50)) ?></td>
                                 <td><?= esc($article->first_name) ?></td>
                                 <td><?= esc($article->label) ?></td>
-                                <td><?= esc($article->tag) ?></td>
                                 <td style="text-align: center;"><?= date_format($article->created_at, "d/m/Y") ?></td>
-                                <td style="text-align: center;"><a href="<?= url_to('\admin\Controllers\Article\Image::new', $article->id) ?>">Ajouter/Editer</a></td>
-                                <!-- <td style="text-align: center;"><a href="<?= url_to('\admin\Controllers\Article\Image::get', $article->id) ?>">Voir</a></td> -->
                                 <td style="text-align: center;"><a href="<?= url_to('Articles::show', $article->id) ?>">Voir</a></td>
                                 <td style="text-align: center;"><a href="<?= url_to('\admin\Controllers\Articles::edit', $article->id) ?>">Editer</a></td>
                                 <td style="text-align: center;"><a href="#">Supprimer</a></td>
@@ -50,9 +45,7 @@
                             <th>Description</th>
                             <th>Auteur</th>
                             <th>Catégorie</th>
-                            <th>Etiquette</th>
                             <th>Date de création</th>
-                            <th>Image</th>
                             <th>Voir</th>
                             <th>Editer</th>
                             <th>Supprimer</th>

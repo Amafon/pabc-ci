@@ -22,6 +22,11 @@
                 <textarea class="" type="text" name="content" id="niceEdit" placeholder="Entrer le contenu de l'article" style="width: 100%;"><?= old('content', $article->content) ?></textarea>
             </div>
             <div class="form-group">
+                <label for="image">Image</label>
+                <img class="article-img-edit" src="<?= base_url('article_images/' . $article->image) ?>" style="width: 400px;" />
+                <input type="file" name="image" id="image">
+            </div>
+            <div class="form-group">
                 <label for="category">Catégorie</label>
                 <select name="category_id" id="category">
                     <option>Sélectionner une catégorie</option>

@@ -46,9 +46,6 @@ class ArticlesModel extends Model
             'required' => 'Le contenu est obligatoire',
             'min_length' => '{param} caractères minimums pour le contenu',
         ],
-        'user_id' => [
-            'required' => 'Le nom de l\'auteur est obligatoire',
-        ],
         'category_id' => [
             'required' => 'Le nom de la catégorie est obligatoire',
         ],

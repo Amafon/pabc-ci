@@ -189,8 +189,8 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide slide-3">
-              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-slider3.png'); ?>");'>
+            <div class="swiper-slide slide-2">
+              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-coordo.jpg'); ?>");'>
                 <!-- <img src="images/img-slider3.png" alt="" /> -->
               </div>
               <div class="activities-content">
@@ -243,7 +243,7 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide slide-4">
+            <div class="swiper-slide slide-3">
               <div class="img-container" style='background-image: url("<?php echo base_url('images/img-dcf.jpg'); ?>");'>
                 <!-- <img src="images/img-slider4.png" alt="" /> -->
               </div>
@@ -295,8 +295,8 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide slide-5">
-              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-slider5.png'); ?>");'>
+            <div class="swiper-slide slide-4">
+              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-ac.jpg'); ?>");'>
                 <!-- <img src="images/img-slider5.png" alt="" /> -->
               </div>
               <div class="activities-content">

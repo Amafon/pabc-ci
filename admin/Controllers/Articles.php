@@ -69,9 +69,51 @@ class Articles extends BaseController
 
     public function create()
     {
+
         $article = new Article($this->request->getPost());
 
+        $file = $this->request->getFile('image');
+
         $article->user_id = auth()->user()->id;
+
+        // Vérifier que le fichier envoyé est valide
+        if (!$file->isValid()) {
+            $error_code = $file->getError();
+
+            if ($error_code === UPLOAD_ERR_NO_FILE) {
+                return redirect()->back()
+                    ->with('errors', ['Pas de fichier sélectionné'])
+                    ->withInput();
+            }
+
+            throw new RuntimeException($file->getErrorString() . ' ' . $error_code);
+        }
+
+        // Vérifier que la taille du fichier joint ne dépasse pas 2 Mo
+        if ($file->getSizeByUnit('mb') > 10) {
+            return redirect()->back()
+                ->with('errors', ['Taille du fichier trop grande'])
+                ->withInput();
+        }
+
+        // Vérifier que le type du fichier soit png ou jpeg ou webp
+        if (!in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/avif'])) {
+            return redirect()->back()
+                ->with('errors', ['Format du fichier incorrect'])
+                ->withInput();
+        }
+
+        // Move the upload file to a permanent location
+        $path = $file->move(FCPATH . "article_images\\");
+
+        $path = FCPATH . "article_images\\" . $file->getName();
+
+        service('image')->withFile($path)
+            ->fit(1500, 800, 'center')
+            ->save($path);
+
+        // Save the Name of the Uploaded File to the Article Record
+        $article->image = $file->getName();
 
         $id = $this->model->insert($article);
 
@@ -122,6 +164,54 @@ class Articles extends BaseController
         $article = $this->getArticleOr404($id);
 
         $article->fill($this->request->getPost());
+
+        $file = $this->request->getFile('image');
+
+        // Vérifier que le fichier envoyé est valide
+        if (!$file->isValid()) {
+            $error_code = $file->getError();
+
+            if ($error_code === UPLOAD_ERR_NO_FILE) {
+                return redirect()->back()
+                    ->with('errors', ['Pas de fichier sélectionné'])
+                    ->withInput();
+            }
+
+            throw new RuntimeException($file->getErrorString() . ' ' . $error_code);
+        }
+
+        // Vérifier que la taille du fichier joint ne dépasse pas 2 Mo
+        if ($file->getSizeByUnit('mb') > 10) {
+            return redirect()->back()
+                ->with('errors', ['Taille du fichier trop grande'])
+                ->withInput();
+        }
+
+        // Vérifier que le type du fichier soit png ou jpeg ou webp
+        if (!in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/avif'])) {
+            return redirect()->back()
+                ->with('errors', ['Format du fichier incorrect'])
+                ->withInput();
+        }
+
+        // Move the upload file to a permanent location
+        $path = $file->move(FCPATH . "article_images\\");
+
+        $path = FCPATH . "article_images\\" . $file->getName();
+
+        service('image')->withFile($path)
+            ->fit(1500, 800, 'center')
+            ->save($path);
+
+
+        if ($article->image === $file->getName()) {
+
+            return redirect()->back()
+                ->with('message', 'Nothing to update');
+        }
+
+        // Save the Name of the Uploaded File to the Article Record
+        $article->image = $file->getName();
 
         if (!$article->hasChanged()) {
 

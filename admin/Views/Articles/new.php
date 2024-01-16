@@ -22,11 +22,15 @@
                 <textarea class="" type="text" name="content" id="niceEdit" placeholder="Entrer le contenu de l'article" style="width: 100%;"><?= old('content') ?></textarea>
             </div>
             <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image">
+            </div>
+            <div class="form-group">
                 <label for="category">Catégorie</label>
                 <select name="category_id" id="category">
                     <option value="">Sélectionner une catégorie</option>
                     <?php foreach ($categories as $category) : ?>
-                        <option value="<?= $category->id ?>" <?= old('category_id') === $category->label ? 'selected' : ''; ?>><?= $category->label ?></option>
+                        <option value="<?= $category->id ?>" <?= old('category_id') === $category->id ? 'selected' : ''; ?>><?= $category->label ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
