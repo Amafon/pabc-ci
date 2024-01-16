@@ -436,7 +436,7 @@
         <?php foreach ($articles as $article) : ?>
           <div class="blog-article">
             <p class="blog-date"><?= date_format($article->created_at, 'd F Y') ?></p>
-            <p class="blog-title"><a href="#"><?= substr(esc($article->title), 0, 22) . "..." ?></a></p>
+            <p class="blog-title"><a href="<?= url_to('Articles::show', $article->id) ?>"><?= substr(esc($article->title), 0, 22) . "..." ?></a></p>
             <p class="blog-description">
               <?= esc($article->description) ?>
             </p>
