@@ -40,8 +40,6 @@ class Image extends BaseController
 
         $file = $this->request->getFile('image');
 
-        // dd($file);   
-
         // Vérifier que le fichier envoyé est valide
         if (!$file->isValid()) {
             $error_code = $file->getError();
@@ -70,13 +68,9 @@ class Image extends BaseController
         }
 
         // Move the upload file to a permanent location
-        // dd(FCPATH);
-        // $path = $file->store(FCPATH);
         $path = $file->move(FCPATH . "article_images\\");
 
-        // dd($path);
         $path = FCPATH . "article_images\\" . $file->getName();
-        // dd($path);
 
         service('image')->withFile($path)
             ->fit(1500, 800, 'center')
@@ -84,34 +78,30 @@ class Image extends BaseController
 
         // Save the Name of the Uploaded File to the Article Record
         $article->image = $file->getName();
-        // dd($article->image);
 
         $this->model->protect(false)
             ->save($article);
 
         return redirect()->to('articles/' . $id . '/show');
-        //  ->with('message', 'Image Uplaod');
-
-
     }
 
-    public function get($id)
-    {
-        $article = $this->getArticleOr404($id);
+    // public function get($id)
+    // {
+    //     $article = $this->getArticleOr404($id);
 
-        if ($article->image) {
-            $path = WRITEPATH . "uploads/article_images/" . $article->image;
+    //     if ($article->image) {
+    //         $path = WRITEPATH . "uploads/article_images/" . $article->image;
 
-            $finfo = new finfo(FILEINFO_MIME);
+    //         $finfo = new finfo(FILEINFO_MIME);
 
-            $type = $finfo->file($path);
+    //         $type = $finfo->file($path);
 
-            header("Content-Type: $type");
-            header("Content-Length: " . filesize($path));
+    //         header("Content-Type: $type");
+    //         header("Content-Length: " . filesize($path));
 
-            readfile($path);
+    //         readfile($path);
 
-            exit;
-        }
-    }
+    //         exit;
+    //     }
+    // }
 }
