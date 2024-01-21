@@ -70,10 +70,15 @@ class Home extends BaseController
         }
 
         $email = \Config\Services::email();
+
         $email->setTo("ugp@pabc-ci.org");
+
         $email->setSubject($this->request->getPost('subject'));
+
         $email->setMessage($this->request->getPost('message'));
+
         if ($email->send()) {
+
             return redirect()->to('/#contact')
                 ->with('message', 'Le message a été envoyé avec succès.');
         } else {
