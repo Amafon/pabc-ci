@@ -35,10 +35,6 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="tag">Tag</label>
-                <input type="tag" name="tag" id="tag" placeholder="Entrer le tag" value="<?= old('tag', $article->tag) ?>">
-            </div>
             <input type="reset" value="Réinitialiser">
             <input type="submit" value="Modifier">
             </form>

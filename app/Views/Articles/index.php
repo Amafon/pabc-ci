@@ -29,9 +29,9 @@
         <?php endforeach; ?>
       </section>
       <aside class="section-aside">
-        <form action="" class="form-search">
-          <input type="text" name="article-input" id="" placeholder="Chercher un article" />
-          <input type="submit" value="Chercher" />
+        <?= form_open('articles') ?>
+        <input type="text" name="param" id="" placeholder="Chercher un article" />
+        <input type="submit" value="Chercher" />
         </form>
         <p class="categories_title">Catégories</p>
         <div class="aside-categories">

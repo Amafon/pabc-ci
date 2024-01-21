@@ -38,23 +38,45 @@ class Articles extends BaseController
     public function index()
     {
         $param = $this->request->getGet();
+
         if ($param) {
+
             $articles = $this->model->select('articles.*, categories.label, users.first_name')
                 ->join('categories', 'categories.id = articles.category_id')
                 ->join('users', 'users.id = articles.user_id')
                 ->where('category_id', $param['category'])
+                ->orderBy('created_at', 'DESC')
                 ->findAll();
         } else {
+
             $articles = $this->model->select('articles.*, categories.label, users.first_name')
                 ->join('categories', 'categories.id = articles.category_id')
                 ->join('users', 'users.id = articles.user_id')
+                ->orderBy('created_at', 'DESC')
+                ->findAll();
+        }
+
+        if ($this->request->getPost()) {
+
+            $param = $this->request->getPost('param');
+
+            $articles = $this->model->select('articles.*, categories.label, users.first_name')
+                ->join('categories', 'categories.id = articles.category_id')
+                ->join('users', 'users.id = articles.user_id')
+                ->like('title', $param)
+                ->orLike('description', $param)
+                ->orLike('label', $param)
+                ->orLike('first_name', $param)
+                ->orderBy('created_at', 'DESC')
                 ->findAll();
         }
 
         $categories = $this->catModel->findAll();
 
         foreach ($categories as $category) {
-            $nb = count($this->model->where('category_id', $category->id)->findAll());
+
+            $nb = count($this->model->where('category_id', $category->id)->orderBy('created_at', 'DESC')->findAll());
+
             $category->nb = $nb;
         }
 
@@ -80,9 +102,11 @@ class Articles extends BaseController
         $categories     = $this->catModel->findAll();
 
         $user           = $this->userModel->where('id', $article->user_id)->first();
-
+        // V.MW<_1LYuC}"^[m
         foreach ($categories as $category) {
+
             $nb = count($this->model->where('category_id', $category->id)->findAll());
+
             $category->nb = $nb;
         }
 
@@ -100,13 +124,21 @@ class Articles extends BaseController
     public function getImage($id)
     {
         $article = $this->getArticleOr404($id);
+
         if ($article->image) {
+
             $path = WRITEPATH . 'uploads/article_images/' . $article->image;
+
             $finfo = new finfo(FILEINFO_MIME);
+
             $type = $finfo->file($path);
+
             header("Content-Type: $type");
+
             header("Content-Length: " . filesize($path));
+
             readfile($path);
+
             exit();
         }
     }

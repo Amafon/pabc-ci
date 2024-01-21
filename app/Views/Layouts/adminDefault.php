@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- CSS Style Sheet -->
-  <link rel="stylesheet" href="<?php echo base_url('css/admin.css') ?>" />
+  <link rel="stylesheet" href="<?php echo base_url('css/admin.css?' . time()) ?>" />
   <!-- Data Tables CSS -->
   <link href="https://cdn.datatables.net/v/ju/jq-3.7.0/jszip-3.10.1/dt-1.13.8/af-2.6.0/b-2.4.2/b-colvis-2.4.2/b-html5-2.4.2/b-print-2.4.2/date-1.5.1/sc-2.3.0/datatables.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">

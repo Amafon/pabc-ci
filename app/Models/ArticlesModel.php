@@ -28,7 +28,6 @@ class ArticlesModel extends Model
         'content' => 'required|min_length[100]',
         'user_id' => 'required|numeric',
         'category_id' => 'required|numeric',
-        'tag' => 'required|min_length[3]|max_length[20]',
 
     ];
     protected $validationMessages   = [
@@ -49,12 +48,6 @@ class ArticlesModel extends Model
         'category_id' => [
             'required' => 'Le nom de la catégorie est obligatoire',
         ],
-        'tag' => [
-            'required' => 'Le tag de l\'article est obligatoire',
-            'min_length' => '{param} caractères minimums pour le tag',
-            'max_length' => '{param} caractères maximums pour le tag',
-        ],
-
     ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

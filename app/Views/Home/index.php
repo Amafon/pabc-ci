@@ -318,36 +318,25 @@
                       <div class="icon-container">
                         <ion-icon name="checkmark-outline" class="icon"></ion-icon>
                       </div>
-                      <span>La planification du projet, l'affectation des
-                        ressources</span>
+                      <span>Gestion Financière du Projet</span>
                     </li>
                     <li class="list-item">
                       <div class="icon-container">
                         <ion-icon name="checkmark-outline" class="icon"></ion-icon>
                       </div>
-                      <span>La planification du projet, l'affectation des
-                        ressources</span>
+                      <span>Suivi Budgétaire du Projet</span>
                     </li>
                     <li class="list-item">
                       <div class="icon-container">
                         <ion-icon name="checkmark-outline" class="icon"></ion-icon>
                       </div>
-                      <span>La planification du projet, l'affectation des
-                        ressources</span>
+                      <span>Préparation des rapports financiers</span>
                     </li>
                     <li class="list-item">
                       <div class="icon-container">
                         <ion-icon name="checkmark-outline" class="icon"></ion-icon>
                       </div>
-                      <span>La planification du projet, l'affectation des
-                        ressources</span>
-                    </li>
-                    <li class="list-item">
-                      <div class="icon-container">
-                        <ion-icon name="checkmark-outline" class="icon"></ion-icon>
-                      </div>
-                      <span>La planification du projet, l'affectation des
-                        ressources</span>
+                      <span>Communication avec les parties prenantes</span>
                     </li>
                   </ul>
                 </div>
@@ -436,7 +425,7 @@
         <?php foreach ($articles as $article) : ?>
           <div class="blog-article">
             <p class="blog-date"><?= date_format($article->created_at, 'd F Y') ?></p>
-            <p class="blog-title"><a href="<?= url_to('Articles::show', $article->id) ?>"><?= substr(esc($article->title), 0, 22) . "..." ?></a></p>
+            <p class="blog-title"><a href="<?= url_to('Articles::show', $article->id) ?>"><?= substr(esc($article->title), 0, 20) . "..." ?></a></p>
             <p class="blog-description">
               <?= esc($article->description) ?>
             </p>

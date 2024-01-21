@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
+  <link rel="stylesheet" href="<?= base_url('css/style.css?' . time()); ?>" />
   <title>PABC</title>
 </head>
 
@@ -19,7 +19,7 @@
       <a href="<?= url_to('Home::index') ?>" class="link logo">PABC</a>
       <div class="nav-links">
         <a href="<?= url_to('Home::index') ?>" class="link link-item">Accueil</a>
-        <a href="projets.html" class="link link-item">Projets</a>
+        <a href="<?= url_to('Projets::index') ?>" class="link link-item">Projets</a>
         <a href="<?= url_to('Articles::index') ?>" class="link link-item">Articles</a>
         <?php if (auth()->loggedIn() && auth()->user()->inGroup('agent', 'admin')) : ?>
           <a href="<?= site_url('admin') ?>" class="link link-item">Admin</a>
