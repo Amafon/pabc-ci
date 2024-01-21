@@ -6,8 +6,10 @@ use App\Controllers\BaseController;
 use App\Models\ArticlesModel;
 use App\Models\CategoriesModel;
 use App\Models\UserModel;
+use App\Models\MessageModel;
 use App\Entities\Article;
 use App\Entities\Category;
+use App\Entities\Message;
 use RuntimeException;
 use finfo;
 use CodeIgniter\Exceptions\PageNotFoundException;
@@ -18,12 +20,14 @@ class Home extends BaseController
     private ArticlesModel $model;
     private CategoriesModel $catModel;
     private UserModel $userModel;
+    private MessageModel $messageModel;
 
     public function __construct()
     {
         $this->model        = new ArticlesModel();
         $this->catModel     = new CategoriesModel();
         $this->userModel    = new UserModel();
+        $this->messageModel = new MessageModel();
     }
 
     private function getArticleOr404($id)
@@ -53,16 +57,30 @@ class Home extends BaseController
         return view('Home/index.php', $data);
     }
 
-    public function sendEmail(string $subject, string $message)
+    public function sendEmail()
     {
+        $message = new Message($this->request->getPost());
+
+        $id = $this->messageModel->insert($message);
+
+        if ($id === false) {
+            return redirect()->to('/#contact')
+                ->with('errors', $this->messageModel->errors())
+                ->withInput();
+        }
+
+
         $email = \Config\Services::email();
-        $email->setTo("ugp@pabc-ci.org");
-        $email->setSubject($subject);
-        $email->setMessage($message);
+        $email->setTo("afy.amafon@gmail.com");
+        $email->setSubject($this->request->getPost('subject'));
+        $email->setMessage($this->request->getPost('message'));
         if ($email->send()) {
-            echo "Succès! Votre message a bien été envoyé. Nous vous reviendrons sous peu.";
+            return redirect()->to('/#contact')
+                ->with('message', 'Le message a été envoyé avec succès.');
         } else {
-            echo "Erreur. Le message n'a pas été envoyé!";
+            return redirect()->back()
+                ->with('errors', $this->messageModel->errors())
+                ->withInput();
         }
     }
 }

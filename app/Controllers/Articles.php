@@ -8,6 +8,7 @@ use App\Models\CategoriesModel;
 use App\Models\UserModel;
 use App\Entities\Article;
 use App\Entities\Category;
+use App\Models\MessageModel;
 use RuntimeException;
 use finfo;
 use CodeIgniter\Exceptions\PageNotFoundException;

@@ -458,13 +458,24 @@
         </p>
       </div>
       <div class="contact-right">
-        <form action="">
-          <input type="text" name="name" id="name" placeholder="Nom" />
-          <input type="text" name="firstname" id="firstname" placeholder="Prénoms" />
-          <input type="email" name="email" id="email" placeholder="example@google.com" />
-          <textarea name="message" id="message" cols="30" rows="5" placeholder="Saisir le message"></textarea>
-          <input class="btn btn--primary" type="submit" value="Envoyer" />
+        <?= form_open('/message') ?>
+        <input type="text" name="senderFirstName" id="senderFirstName" placeholder="Prénom(s)" />
+        <input type="text" name="senderLastName" id="senderLastName" placeholder="Nom" />
+        <input type="email" name="email" id="email" placeholder="example@google.com" />
+        <input type="text" name="subject" id="subject" placeholder="Objet du message" />
+        <textarea name="message" id="message" cols="30" rows="5" placeholder="Saisir le message"></textarea>
+        <input class="btn btn--primary" type="submit" value="Envoyer" />
         </form>
+        <?php if (session()->has('message')) : ?>
+          <p><?= session('message') ?></p>
+        <?php endif; ?>
+        <?php if (session()->has('errors')) : ?>
+          <ul>
+            <?php foreach (session('errors') as $error) : ?>
+              <li><?= $error ?></li>
+            <?php endforeach; ?>
+          </ul>
+        <?php endif; ?>
       </div>
     </div>
   </section>

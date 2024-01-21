@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->post('/message', 'Home::sendEmail');
 $routes->get('projets', 'Projets::index');
 $routes->get('articles', 'Articles::index');
 $routes->post('articles', 'Articles::index');

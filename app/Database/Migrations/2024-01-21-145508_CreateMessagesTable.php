@@ -16,6 +16,16 @@ class CreateMessagesTable extends Migration
                 'null'                  => false,
                 'auto_increment'        => true,
             ],
+            'email' => [
+                'type'                  => 'VARCHAR',
+                'constraint'            => 50,
+                'null'                  => false,
+            ],
+            'subject' => [
+                'type'                  => 'VARCHAR',
+                'constraint'            => 255,
+                'null'                  => false,
+            ],
             'senderFirstName' => [
                 'type'                  => 'VARCHAR',
                 'constraint'            => 150,
