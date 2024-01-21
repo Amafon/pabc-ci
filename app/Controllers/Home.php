@@ -69,9 +69,8 @@ class Home extends BaseController
                 ->withInput();
         }
 
-
         $email = \Config\Services::email();
-        $email->setTo("afy.amafon@gmail.com");
+        $email->setTo("ugp@pabc-ci.org");
         $email->setSubject($this->request->getPost('subject'));
         $email->setMessage($this->request->getPost('message'));
         if ($email->send()) {
