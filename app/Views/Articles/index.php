@@ -15,7 +15,7 @@
               <img class="article-img" src="<?= base_url('article_images/' . $article->image) ?>" />
             </a>
             <div class="article-block">
-              <p class="article-title"><?= substr(esc($article->title), 0, 20) . '...' ?></p>
+              <p class="article-title"><?= substr(esc($article->title), 0, 60) . '...' ?></p>
               <p class="article-description">
                 <?= esc($article->description) ?>
               </p>

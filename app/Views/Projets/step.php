@@ -3,7 +3,7 @@
 <main class="main">
   <div class="container container-articles">
     <div class="section-header">
-      <h2>Notre projet et nos activités</h2>
+      <h2>Le Bassin Ecrêteur de Williamsville</h2>
     </div>
   </div>
   <div class="container">
@@ -11,8 +11,39 @@
       <section class="section-articles blog">
         <div class="blog-article">
           <img class="article-img" src="<?= base_url('images/img-bc.jpg') ?>" />
-          <p>Initié en 2016 par le Gouvernement ivoirien dans le cadre de la mise en œuvre des activités du Plan National de Développement de la Côte d’Ivoire, le Projet de Sauvegarde et de Valorisation de la Baie de Cocody et de la Lagune Ebrié (PABC) est financé par l’Etat de Côte d’Ivoire avec l’appui des Bailleurs de Fonds Arabes (BID, BADEA, OFID, FKD).</p>
-          <ul class="projet-list">
+          <h3>Introduction</h3>
+          <p>Dans le cadre de l'amélioration de la qualité des services urbains de base dans toutes les grandes villes et le renforcement
+            des infrastructures rurales du pays, le gouvernement de la république de Côte d'Ivoire a obtenu un financement de la Banque Islamique
+            de Développement pour financer une partie du projet de sauvegarde et de valorisation de la Baie de Cocody et la Lagune Ebrié (PABC)
+            en vue de réaliser les travaux de construction du bassin écrêteur de Williamsville. </p>
+          <p>Le projet offrira aux bénéficiaires des avantages
+            substantiels, y compris sa contribution à la réalisation des Objectifs du Millénaire pour le Développement (OMD) à savoir: la réduction
+            de la pauvreté en redynamisant la croissance économique.
+          </p>
+          <h3>Justification et Objectif du Projet</h3>
+          <p>La commune d'Adjamé regorge de nombreux bassins pour la plupart non aménagés. Les infrastructures de stockage temporaire, de collecte et d'évacuation des deux
+            existantes sont insuffisantes, souvent mal utilisées et mal entretenues. Par ailleurs, ces dépressions sont utilisées par les riverains comme des dépotoirs d'ordures de toutes sortes. Ces ordures sont aussi à l'origine de la
+            prolifération des maladies hydriques et des odeurs nauséabondes.
+          </p>
+          <p>
+            Pendant les évènements pluvieux, les riverains de ces bassins subissent des inondations récurrentes avec pour corollaire de nombreux dégâts matériels
+            et voir humains. Les habitants de l'environnement immédiat de ces cuvettes sont contraints de quitter leurs habitations durant la saison des pluies pour y
+            retourner en saison sèche. Ces iondations entraînent également la dégradation précoce de la voirie du fait d'un mauvais drainage, rendant difficile la mobilité des populations cibles et
+            leurs accès aux services de base (santé, école, lieux de travail, etc.).
+          </p>
+          <p>
+            C'est pour faire face à cette situation que vivent les habitants de Williamsville que l'Etat de Côte d'Ivoire a initié le projet de construction du bassin écrêteur
+            de Williamsville.
+          </p>
+          <h3>Localisation du Projet</h3>
+          <p>Le Bassin écrêteur de Williamsville dont l'aménagement nous occupe, se situe dans la commune d'Adjamé qui est l'une des (treize) 13 communes du district d'Abidjan.</p>
+          <p>Williamsville occupe la partie Est du district d'Abidjan. Ce quartier commence par la route qui mène à Abobo par le Zoo (route du Zoo) et longe l'artère principale (avenue Jacob Williams)
+            pour s'arrêter au Commissariat du 11ème arrondissement.
+          </p>
+          <p>La population de la commune de Williamsville a atteint 112 840 habitants en 2008 avec un taux d'accroissement annuel de 4.32%.
+          </p>
+          <p>Le territoire de Williamsville s'étend sur une superficie de 160 hectares.</p>
+          <!-- <ul class="projet-list">
             <li class="projet-list-item">
               <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
               <span>BID: Banque Islamique de Développement</span>
@@ -29,8 +60,71 @@
               <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
               <span>FKDEA: Fonds Koweitien de Développement Economique Arabe</span>
             </li>
+          </ul> -->
+          <h3>Descriptif du Projet</h3>
+          <p>Ce projet consiste en:</p>
+          <ul class="projet-list">
+            <li class="projet-list-item">
+              <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
+              <span>La construction d'un ouvrage d'écrêtement et de régulation des eaux</span>
+              <!-- </li>
+            <li class="projet-list-item">
+              <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
+              <span>Financement: BID</span>
+            </li> -->
           </ul>
-          <p class="apres-list">Le PABC se réalise en deux (02) tranches. Les travaux de la première tranche ont été achevés en 2018 et ceux de la deuxième tranche sont toujours en cours.
+          <h3>Acteurs Institutionnels</h3>
+          <table>
+            <tr>
+              <th>Maître d’Ouvrage </th>
+              <td>Ministère de l’Assainissement et de la Salubrité(MINASS)</td>
+              <!-- <td>Data 1-2</td> -->
+            </tr>
+            <tr>
+              <th>Maître d’Ouvrage Délégué</th>
+              <td>Unité de Gestion du PABC</td>
+              <!-- <td>Data 2-2</td> -->
+            </tr>
+            <tr>
+              <th>Bailleur</th>
+              <td>Banque Islamique de Développement (BID)</td>
+              <!-- <td>Data 3-2</td> -->
+            </tr>
+            <tr>
+              <th>Assistant à Maîtrise d’Ouvrage</th>
+              <td>Marchica Med</td>
+              <!-- <td>Data 4-2</td> -->
+            </tr>
+            <tr>
+              <th>Mission de Contrôle</th>
+              <td>BNETD/CID</td>
+              <!-- <td>Data 4-2</td> -->
+            </tr>
+            <tr>
+              <th>Entreprise</th>
+              <td>BANIBAH/FRANZETTI</td>
+              <!-- <td>Data 4-2</td> -->
+            </tr>
+          </table>
+          <!-- <ul class="projet-list">
+            <li class="projet-list-item">
+              <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
+              <span>L'aménagement urbain et paysager de la rive Plateau et le Parc urbain de la rive Cocody</span>
+            </li>
+            <li class="projet-list-item">
+              <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
+              <span>L'interception des rejets liquides dans la baie de Cocody</span>
+            </li>
+            <li class="projet-list-item">
+              <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
+              <span>Le confortement des berges, la réalisation d'une marina, de quais et de terre-pleins</span>
+            </li>
+            <li class="projet-list-item">
+              <div class="icon-container"><ion-icon name="checkmark-outline" class="icon"></ion-icon></div>
+              <span>La réalisation des voiries et réseaux divers (VRD) de la plateforme</span>
+            </li>
+          </ul> -->
+          <!-- <p class="apres-list">Le PABC se réalise en deux (02) tranches. Les travaux de la première tranche ont été achevés en 2018 et ceux de la deuxième tranche sont toujours en cours.
           </p>
           <p>Le PABC vise à résoudre de manière durable le problème de pollution de la Baie de Cocody à travers (i) la dépollution du Plan d’eau lagunaire, (ii) la suppression des inondations au carrefour de l’Indenié et (iii) l’amélioration de la fluidité routière.</p>
           <p>Ainsi, ce projet améliorera le cadre de vie des populations Abidjanaises et contribuera à l’exploitation de tout le potentiel touristique de la zone du Projet.</p>
@@ -104,7 +198,7 @@
           </ul>
         </div>
         <div class="section-body-projets">
-          <a href="projets/be">
+          <a href="#">
             <div class="img-container">
               <img src="<?php echo base_url('images/img-4.webp'); ?>" alt="" />
               <div class="overlay">
@@ -115,7 +209,7 @@
               </div>
             </div>
           </a>
-          <a href="projets/ci">
+          <a href="">
             <div class="img-container">
               <img src="<?php echo base_url('images/img-5.webp'); ?>" alt="" />
               <div class="overlay">
@@ -126,7 +220,7 @@
               </div>
             </div>
           </a>
-          <a href="projets/cv">
+          <a href="">
             <div class="img-container">
               <img src="<?php echo base_url('images/img-6.webp'); ?>" alt="" />
               <div class="overlay">
@@ -137,7 +231,7 @@
               </div>
             </div>
           </a>
-          <a href="projets/emb">
+          <a href="">
             <div class="img-container">
               <img src="<?php echo base_url('images/img-7.webp'); ?>" alt="" />
               <div class="overlay">
@@ -148,7 +242,7 @@
               </div>
             </div>
           </a>
-          <a href="projets/pc">
+          <a href="">
             <div class="img-container">
               <img src="<?php echo base_url('images/img-8.webp'); ?>" alt="" />
               <div class="overlay">
@@ -159,18 +253,18 @@
               </div>
             </div>
           </a>
-          <a href="projets/step">
+          <a href="">
             <div class="img-container">
               <img src="<?php echo base_url('images/img-9.webp'); ?>" alt="" />
               <div class="overlay">
                 <div class="text">
-                  <p>En cours</p>
-                  <p>STEP</p>
+                  <p>CRBC</p>
+                  <p>Pont Alassane OUATTARA</p>
                 </div>
               </div>
             </div>
           </a>
-        </div>
+        </div> -->
       </section>
       <aside class="section-aside blog">
         <?= form_open('articles') ?>

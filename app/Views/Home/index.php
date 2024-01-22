@@ -10,7 +10,7 @@
         <p class="home-description">
           Nos projets jouent un rôle crucial dans le développement d'Abidjan
           en particulier et de la Côte d'Ivoire en général. Ils permettront
-          d'attirer des investisseurs de tous horizon.
+          d'attirer des investisseurs de tous horizons.
         </p>
         <a href="#contact" class="link btn btn--primary btn-contact">Contact</a>
       </div>
@@ -195,7 +195,7 @@
               </div>
               <div class="activities-content">
                 <h3>Bê Lancina COULIBALY</h3>
-                <h5>Conseiller Technique</h5>
+                <h5>Conseiller Technique du Premier Ministre</h5>
                 <h6>Coordonnateur de l'Unité de Gestion du PABC</h6>
                 <div class="inner">
                   <p>
@@ -362,58 +362,86 @@
         <h2>Nos projets</h2>
       </div>
       <div class="section-body">
-        <div class="img-container">
-          <img src="<?php echo base_url('images/img-4.webp'); ?>" alt="" />
-          <div class="overlay">
-            <div class="text">
-              <p>BANIBAH - FRANZETTI</p>
-              <p>Bassin Ecrêteur de Williamsville</p>
+        <a href="projets/be">
+          <div class="img-container">
+            <img src="<?php echo base_url('images/img-4.webp'); ?>" alt="" />
+            <div class="overlay">
+              <div class="text">
+                <p>BANIBAH - FRANZETTI</p>
+                <p>Bassin Ecrêteur de Williamsville</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="img-container">
-          <img src="<?php echo base_url('images/img-5.webp'); ?>" alt="" />
-          <div class="overlay">
-            <div class="text">
-              <p>SGTM</p>
-              <p>Aménagement du Carrefour de l'Indenié</p>
+        </a>
+        <a href="projets/ci">
+          <div class="img-container">
+            <img src="<?php echo base_url('images/img-5.webp'); ?>" alt="" />
+            <div class="overlay">
+              <div class="text">
+                <p>SGTM</p>
+                <p>Aménagement du Carrefour de l'Indenié</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="img-container">
-          <img src="<?php echo base_url('images/img-6.webp'); ?>" alt="" />
-          <div class="overlay">
-            <div class="text">
-              <p>SODEFOR - CERCIS</p>
-              <p>Aménagement de la Coulée Verte du Banco</p>
+        </a>
+        <a href="projets/cv">
+          <div class="img-container">
+            <img src="<?php echo base_url('images/img-6.webp'); ?>" alt="" />
+            <div class="overlay">
+              <div class="text">
+                <p>SODEFOR - CERCIS</p>
+                <p>Aménagement de la Coulée Verte du Banco</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="img-container">
-          <img src="<?php echo base_url('images/img-7.webp'); ?>" alt="" />
-          <div class="overlay">
-            <div class="text">
-              <p>SGTM</p>
-              <p>Embouchure du Fleuve Comoé - Grand Bassam</p>
+        </a>
+        <a href="projets/emb">
+          <div class="img-container">
+            <img src="<?php echo base_url('images/img-7.webp'); ?>" alt="" />
+            <div class="overlay">
+              <div class="text">
+                <p>SGTM</p>
+                <p>Embouchure du Fleuve Comoé - Grand Bassam</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="img-container">
-          <img src="<?php echo base_url('images/img-8.webp'); ?>" alt="" />
-          <div class="overlay">
-            <div class="text">
-              <p>CRBC</p>
-              <p>Pont Alassane OUATTARA</p>
+        </a>
+        <a href="projets/pc">
+          <div class="img-container">
+            <img src="<?php echo base_url('images/img-8.webp'); ?>" alt="" />
+            <div class="overlay">
+              <div class="text">
+                <p>CRBC</p>
+                <p>Pont Alassane OUATTARA</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="img-container">
-          <img src="<?php echo base_url('images/img-9.webp'); ?>" alt="" />
-          <div class="overlay">
-            <div class="text">
-              <p>CRBC</p>
-              <p>Pont Alassane OUATTARA</p>
+        </a>
+        <a href="projets/step">
+          <div class="img-container">
+            <img src="<?php echo base_url('images/img-9.webp'); ?>" alt="" />
+            <div class="overlay">
+              <div class="text">
+                <p>STEP</p>
+                <p>Pont Alassane OUATTARA</p>
+              </div>
             </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section-financement" id="financement">
+    <div class="financement-grid">
+      <div class="container">
+        <div class="section-header">
+          <h3 style="text-align: center;">Le Financement</h3>
+          <div class="financement-img">
+            <img class="img-logo" src="<?= base_url('images/logo_ci.png') ?>" alt="Logo de la Côte d'Ivoire">
+            <img class="img-logo" src="<?= base_url('images/logo_bid.jpg') ?>" alt="Logo de la BID">
+            <img class="img-logo" src="<?= base_url('images/logo_badea.jpg') ?>" alt="Logo de la BADEA">
+            <img class="img-logo" src="<?= base_url('images/logo_ofid.jpg') ?>" alt="Logo de l'OFID">
+            <img class="img-logo" src="<?= base_url('images/logo_fkdea.jpg') ?>" alt="Logo du Fonds Kowéïtien">
           </div>
         </div>
       </div>
