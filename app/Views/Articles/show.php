@@ -15,7 +15,7 @@
         <div class="article-infos">
           <img class="author-pro" src="<?php echo base_url('images/art-prof.png'); ?>" />
           <p class="article-author"><?= $user->first_name ?></p>
-          <p class="article-date"><?= date_format($article->created_at, 'd F Y') ?></p>
+          <p class="article-date"><?= date_format($article->created_at, 'd/m/Y') ?></p>
         </div>
       </header>
     </div>

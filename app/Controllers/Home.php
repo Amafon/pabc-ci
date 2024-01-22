@@ -71,11 +71,18 @@ class Home extends BaseController
 
         $email = \Config\Services::email();
 
-        $email->setTo("ugp@pabc-ci.org");
+        // $email->setTo("ugp@pabc-ci.org");
+        $email->setTo("afy.amafon@gmail.com");
 
         $email->setSubject($this->request->getPost('subject'));
 
-        $email->setMessage($this->request->getPost('message'));
+        $theMessage = "Identité Emetteur: " . $this->request->getPost('senderFirstName') . ' ' . $this->request->getPost('senderLastName');
+
+        $theMessage .= "\n Email Emetteur: " . $this->request->getPost('email');
+
+        $theMessage .= "\n Message: " . $this->request->getPost('message');
+
+        $email->setMessage($theMessage);
 
         if ($email->send()) {
 

@@ -190,7 +190,7 @@
               </div>
             </div>
             <div class="swiper-slide slide-2">
-              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-coordo.jpg'); ?>");'>
+              <div class="img-container" style='background-image: url("<?php echo base_url('images/img-coordo.JPG'); ?>");'>
                 <!-- <img src="images/img-slider3.png" alt="" /> -->
               </div>
               <div class="activities-content">
@@ -452,8 +452,8 @@
       <div class="blog-articles">
         <?php foreach ($articles as $article) : ?>
           <div class="blog-article">
-            <p class="blog-date"><?= date_format($article->created_at, 'd F Y') ?></p>
-            <p class="blog-title"><a href="<?= url_to('Articles::show', $article->id) ?>"><?= substr(esc($article->title), 0, 20) . "..." ?></a></p>
+            <p class="blog-date"><?= date_format($article->created_at, 'd/m/Y') ?></p>
+            <p class="blog-title"><a href="<?= url_to('Articles::show', $article->id) ?>"><?= substr(esc($article->title), 0, 70) . "..." ?></a></p>
             <p class="blog-description">
               <?= esc($article->description) ?>
             </p>
@@ -487,11 +487,11 @@
       </div>
       <div class="contact-right">
         <?= form_open('/message') ?>
-        <input type="text" name="senderFirstName" id="senderFirstName" placeholder="Prénom(s)" />
-        <input type="text" name="senderLastName" id="senderLastName" placeholder="Nom" />
-        <input type="email" name="email" id="email" placeholder="example@google.com" />
-        <input type="text" name="subject" id="subject" placeholder="Objet du message" />
-        <textarea name="message" id="message" cols="30" rows="5" placeholder="Saisir le message"></textarea>
+        <input type="text" name="senderFirstName" id="senderFirstName" placeholder="Prénom(s)" value="<?= old('senderFirstName') ?>" />
+        <input type="text" name="senderLastName" id="senderLastName" placeholder="Nom" value="<?= old('senderLastName') ?>" />
+        <input type="email" name="email" id="email" placeholder="example@google.com" value="<?= old('email') ?>" />
+        <input type="text" name="subject" id="subject" placeholder="Objet du message" value="<?= old('subject') ?>" />
+        <textarea name="message" id="message" cols="30" rows="5" placeholder="Saisir le message"> <?= old('message') ?></textarea>
         <input class="btn btn--primary" type="submit" value="Envoyer" />
         </form>
         <?php if (session()->has('message')) : ?>
